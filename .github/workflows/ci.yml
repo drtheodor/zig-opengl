@@ -28,7 +28,6 @@ jobs:
         run: dotnet run OpenGL-Registry/xml/gl.xml bindings.zig GL_VERSION_3_3
 
       - name: Bundle bindings
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: loaders
           path: bindings.zig
