@@ -248,10 +248,10 @@ class Program
       stream.Write(cmd.GetSignature(true));
       stream.WriteLine(" {");
 
-      stream.Write("    const mod: std.builtin.CallModifier = switch (builtin.zig_backend) {");
-      stream.Write("        .stage2_x86_64 => .auto,");
-      stream.Write("        else => .always_tail,");
-      stream.Write("    };");
+      stream.WriteLine("    const mod: std.builtin.CallModifier = switch (builtin.zig_backend) {");
+      stream.WriteLine("        .stage2_x86_64 => .auto,");
+      stream.WriteLine("        else => .always_tail,");
+      stream.WriteLine("    };");
       stream.Write("    return @call(mod, function_pointers.{0}, .{{", cmd.Prototype.Name);
       if (cmd.Parameters != null)
       {
