@@ -27,8 +27,8 @@ jobs:
       - name: Build the generator
         run: dotnet run OpenGL-Registry/xml/gl.xml bindings.zig GL_VERSION_3_3
 
-      - name: Bundle pregenerated loaders
-        uses: actions/upload-artifact@v2
+      - name: Bundle bindings
+        uses: actions/upload-artifact@v3
         with:
           name: loaders
           path: bindings.zig
