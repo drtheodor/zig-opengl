@@ -272,7 +272,10 @@ class Program
 
   public static void WriteLoader(TextWriter stream, IEnumerable<Command> commands)
   {
-    stream.WriteLine("pub fn load(load_ctx: anytype, get_proc_address: fn(@TypeOf(load_ctx), [:0]const u8) ?FunctionPointer) !void {");
+    stream.WriteLine("pub const LoadError = error{);
+    stream.WriteLine("    EntryPointNotFound,");
+    stream.WriteLine("};\n");
+    stream.WriteLine("pub fn load(load_ctx: anytype, get_proc_address: fn(@TypeOf(load_ctx), [:0]const u8) ?FunctionPointer) LoadError!void {");
     stream.WriteLine("    var success = true;");
     foreach (var cmd in commands)
     {
